@@ -1,0 +1,447 @@
+/* ===================================
+   hero.css - Modern Hero Section Styling
+   =================================== */
+
+/* Hero Section Container */
+.hero-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f6f8fb 0%, #ffffff 50%, #f0f4f8 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0;
+}
+
+/* Decorative Background Elements */
+.hero-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: floatBg 20s ease-in-out infinite;
+}
+
+.hero-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(118, 75, 162, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: floatBg 25s ease-in-out infinite reverse;
+}
+
+/* Inner Container */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Left Side - Copy */
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #1a1a1a;
+  background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.hero-copy h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+.hero-copy p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #6b7280;
+  max-width: 540px;
+}
+
+/* CTA Buttons */
+.hero-cta-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.hero-cta-group a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Primary CTA */
+.hero-cta-group a:first-child {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hero-cta-group a:first-child::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.hero-cta-group a:first-child:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.hero-cta-group a:first-child:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Secondary CTA */
+.hero-cta-group a:last-child {
+  background: white;
+  color: #1a1a1a;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.hero-cta-group a:last-child:hover {
+  border-color: #667eea;
+  color: #667eea;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+}
+
+/* Right Side - Product Display */
+.hero-product {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+}
+
+/* Product Card */
+.product-card {
+  background: white;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 2;
+  max-width: 320px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
+}
+
+.product-card .meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.product-card .font-semibold {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.product-card .text-sm {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+/* Floating Animation */
+.float-y {
+  animation: floatY 4s ease-in-out infinite;
+}
+
+@keyframes floatY {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+/* Smoke Container */
+.smoke-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  filter: blur(1px);
+  mix-blend-mode: multiply;
+}
+
+.smoke-container {
+  animation: smokeDrift 12s ease-in-out infinite;
+}
+
+@keyframes smokeDrift {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-48%, -52%) rotate(1deg);
+    opacity: 0.5;
+  }
+}
+
+/* Debug Visible (for development) */
+.debug-visible {
+  /* Uncomment to debug smoke position */
+  /* outline: 2px dashed red; */
+}
+
+/* Stagger Animation Classes */
+.stagger {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Background Float Animation */
+@keyframes floatBg {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -30px) scale(1.05);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-inner {
+    gap: 3rem;
+  }
+
+  .hero-copy h1 {
+    font-size: 2.75rem;
+  }
+
+  .product-card {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-wrapper {
+    min-height: auto;
+    padding: 4rem 0;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .hero-copy {
+    align-items: center;
+  }
+
+  .hero-copy h1 {
+    font-size: 2.25rem;
+  }
+
+  .hero-copy h1::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero-copy p {
+    max-width: 100%;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-cta-group a {
+    flex: 1;
+    min-width: 140px;
+  }
+
+  .hero-product {
+    min-height: 400px;
+  }
+
+  .product-card {
+    max-width: 100%;
+  }
+
+  .smoke-wrap {
+    width: 300px;
+    height: 200px;
+  }
+
+  /* Hide decorative backgrounds on mobile */
+  .hero-wrapper::before,
+  .hero-wrapper::after {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-wrapper {
+    padding: 3rem 0;
+  }
+
+  .hero-inner {
+    padding: 0 1rem;
+    gap: 2rem;
+  }
+
+  .hero-copy h1 {
+    font-size: 1.875rem;
+  }
+
+  .hero-copy p {
+    font-size: 1rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group a {
+    width: 100%;
+  }
+
+  .product-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .float-y,
+  .smoke-container,
+  .hero-wrapper::before,
+  .hero-wrapper::after {
+    animation: none;
+  }
+
+  .product-card,
+  .hero-cta-group a {
+    transition: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .hero-wrapper {
+    min-height: auto;
+    background: white;
+    padding: 2rem 0;
+  }
+
+  .hero-wrapper::before,
+  .hero-wrapper::after,
+  .smoke-wrap {
+    display: none;
+  }
+
+  .hero-cta-group {
+    display: none;
+  }
+}
+
+/* Additional Polish */
+.hero-copy h1 {
+  letter-spacing: -0.02em;
+}
+
+.product-card {
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Subtle gradient overlay on product image */
+.product-card img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.05));
+  border-radius: 16px;
+}
+
+/* Active state for buttons */
+.hero-cta-group a:active {
+  transform: translateY(-1px);
+}
+
+/* Focus states for accessibility */
+.hero-cta-group a:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 4px;
+}
