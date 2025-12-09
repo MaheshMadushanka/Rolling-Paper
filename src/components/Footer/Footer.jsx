@@ -116,6 +116,50 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes sparkle {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        footer a:hover {
+          color: #fbbf24 !important;
+          transform: translateX(4px);
+        }
+
+        footer a[aria-label]:hover {
+          background: rgba(251, 191, 36, 0.1) !important;
+          border-color: #fbbf24 !important;
+          transform: translateY(-2px) !important;
+        }
+
+        footer input:focus {
+          border-color: #fbbf24 !important;
+          background: rgba(255, 255, 255, 0.08) !important;
+        }
+
+        footer button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(251, 191, 36, 0.3);
+        }
+
+        footer button:active {
+          transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+          footer > div:first-child > div > div {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
+
+          footer > div:last-child > div > div {
+            flex-direction: column !important;
+            text-align: center !important;
+          }
+        }
+      `}</style>
     </footer>
   );
 }
@@ -124,13 +168,11 @@ const styles = {
   footer: {
     background: 'linear-gradient(180deg, #1a1a1a 0%, #000000 100%)',
     color: '#e5e7eb',
-    marginTop: '6rem',
-    position: 'relative',
-    overflow: 'hidden',
+    width: '100%',
+    marginTop: '30rem', // Changed from fixed 6rem
   },
   mainFooter: {
     padding: '4rem 0 2rem',
-    position: 'relative',
   },
   container: {
     maxWidth: '1200px',
@@ -194,7 +236,6 @@ const styles = {
     fontWeight: '700',
     color: '#ffffff',
     marginBottom: '0.5rem',
-    position: 'relative',
     paddingBottom: '0.75rem',
   },
   linkList: {
@@ -211,7 +252,6 @@ const styles = {
     fontSize: '0.875rem',
     transition: 'all 0.3s ease',
     display: 'inline-block',
-    position: 'relative',
   },
   contactList: {
     listStyle: 'none',
@@ -236,11 +276,11 @@ const styles = {
   },
   newsletter: {
     display: 'flex',
+    flexDirection: 'column',
     gap: '0.5rem',
     marginTop: '0.5rem',
   },
   newsletterInput: {
-    flex: 1,
     padding: '0.75rem 1rem',
     borderRadius: '8px',
     border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -260,7 +300,6 @@ const styles = {
     fontSize: '0.875rem',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
-    whiteSpace: 'nowrap',
   },
   bottomBar: {
     borderTop: '1px solid rgba(255, 255, 255, 0.1)',
@@ -300,63 +339,3 @@ const styles = {
     gap: '0.25rem',
   },
 };
-
-// Add this to your global CSS or in a <style> tag
-const styleSheet = `
-  @keyframes sparkle {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.2); }
-  }
-
-  footer a:hover {
-    color: #fbbf24 !important;
-    transform: translateX(4px);
-  }
-
-  footer .social-icon:hover {
-    background: rgba(251, 191, 36, 0.1) !important;
-    border-color: #fbbf24 !important;
-    transform: translateY(-2px);
-  }
-
-  footer input:focus {
-    border-color: #fbbf24 !important;
-    background: rgba(255, 255, 255, 0.08) !important;
-  }
-
-  footer button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(251, 191, 36, 0.3);
-  }
-
-  footer button:active {
-    transform: translateY(0);
-  }
-
-  @media (max-width: 768px) {
-    footer .grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    footer .bottom-content {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    footer .newsletter {
-      flex-direction: column;
-    }
-
-    footer .newsletter button {
-      width: 100%;
-    }
-  }
-`;
-
-// Inject styles
-if (typeof document !== 'undefined') {
-  const style = document.createElement('style');
-  style.textContent = styleSheet;
-  document.head.appendChild(style);
-}

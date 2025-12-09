@@ -4,7 +4,7 @@ import Lottie from "react-lottie-player"; // default export
 import smokeJson from "../../assets/lottie/smoke.json"; // ensure file exists here
 import gsap from "gsap";
 import { useMotion } from "../../contexts/MotionContext";
-import "./hero.css";
+//import "./hero.css"; // import corresponding CSS
 
 export default function Hero() {
   const { enabled } = useMotion();

@@ -1,4 +1,4 @@
-/* ===================================
+/* /* ===================================
    hero.css - Modern Hero Section Styling
    =================================== */
 
@@ -444,4 +444,4 @@
 .hero-cta-group a:focus-visible {
   outline: 2px solid #667eea;
   outline-offset: 4px;
-}
+} 

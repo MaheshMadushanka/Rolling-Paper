@@ -8,7 +8,7 @@ export default function Home() {
       <Hero />
       <section className="container py-12">
         <h2 className="text-2xl font-bold mb-6">Featured Products</h2>
-        <ProductGrid limit={3} />
+        <ProductGrid limit={4} />
       </section>
     </div>
   );
